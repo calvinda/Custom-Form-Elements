@@ -196,6 +196,15 @@ section {
   position: relative;
 }
 
+section.clean {
+    background: none;
+    border: 0;
+}
+
+section.example {
+    margin-bottom: 20px;
+}
+
 h1, h2, h3, h4, h5, h6 {
   color: #222;
   padding: 0;
