@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Custom Form Elements by karbassi</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Custom Form Elements</h1>
+<p>A lightweight custom form styler for radio, checkbox and select elements.</p>
+        <p class="view"><a href="https://github.com/karbassi/Custom-Form-Elements">View the Project on GitHub <small>karbassi/Custom-Form-Elements</small></a></p>
+        <ul>
+          <li><a href="https://github.com/karbassi/Custom-Form-Elements/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/karbassi/Custom-Form-Elements/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/karbassi/Custom-Form-Elements">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>Requirements</h2>
+
+<ul>
+<li>Requires <a href="http://jquery.com">jQuery 1.7+</a>
+</li>
+<li>All <code>form</code> elements require <code>id</code>s.</li>
+</ul><h2>Note</h2>
+
+<ul>
+<li>Call once your document is loaded. If you are dynamically loading content, use the <code>repaint</code> function.</li>
+</ul><h2>Example</h2>
+
+<h3>CSS</h3>
+
+<div class="highlight">
+<pre><span class="nc">.cfe-radio</span><span class="o">,</span>
+<span class="nc">.cfe-checkbox</span><span class="o">,</span>
+<span class="nc">.cfe-select</span><span class="o">,</span>
+<span class="nc">.cfe-file</span> <span class="p">{</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
+    <span class="k">cursor</span><span class="o">:</span> <span class="k">pointer</span><span class="p">;</span>
+    <span class="k">background</span><span class="o">:</span> <span class="m">0</span> <span class="m">0</span> <span class="k">no-repeat</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.cfe-radio</span><span class="o">,</span>
+<span class="nc">.cfe-checkbox</span> <span class="p">{</span>
+    <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">tap</span><span class="o">-</span><span class="n">highlight</span><span class="o">-</span><span class="k">color</span><span class="o">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nc">.cfe-radio</span> <span class="p">{</span>
+    <span class="k">background</span><span class="o">:</span> <span class="sx">url(radios.png)</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">12px</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">11px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.cfe-radio.cfe-state-0</span> <span class="p">{</span> <span class="k">background-position</span><span class="o">:</span> <span class="m">0</span> <span class="m">0</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.cfe-radio.cfe-state-1</span> <span class="p">{</span> <span class="k">background-position</span><span class="o">:</span> <span class="m">0</span> <span class="m">-11px</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.cfe-radio.cfe-state-2</span> <span class="p">{</span> <span class="k">background-position</span><span class="o">:</span> <span class="m">0</span> <span class="m">-22px</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.cfe-radio.cfe-state-3</span> <span class="p">{</span> <span class="k">background-position</span><span class="o">:</span> <span class="m">0</span> <span class="m">-33px</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="nc">.cfe-checkbox</span> <span class="p">{</span>
+    <span class="k">background</span><span class="o">:</span> <span class="sx">url(checkbox.png)</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">12px</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">12px</span><span class="p">;</span>
+    <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.cfe-checkbox.cfe-state-0</span> <span class="p">{</span> <span class="k">background-position</span><span class="o">:</span> <span class="m">0</span> <span class="m">0</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.cfe-checkbox.cfe-state-1</span> <span class="p">{</span> <span class="k">background-position</span><span class="o">:</span> <span class="m">0</span> <span class="m">-12px</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.cfe-checkbox.cfe-state-2</span> <span class="p">{</span> <span class="k">background-position</span><span class="o">:</span> <span class="m">0</span> <span class="m">-24px</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.cfe-checkbox.cfe-state-3</span> <span class="p">{</span> <span class="k">background-position</span><span class="o">:</span> <span class="m">0</span> <span class="m">-36px</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="nc">.cfe-select</span><span class="o">,</span>
+<span class="nc">.cfe-file</span> <span class="p">{</span>
+    <span class="k">font</span><span class="o">:</span> <span class="m">10px</span><span class="o">/</span><span class="m">21px</span> <span class="n">arial</span><span class="o">,</span><span class="k">sans-serif</span><span class="p">;</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#8A7967</span><span class="p">;</span>
+    <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+    <span class="k">padding</span><span class="o">:</span> <span class="m">0</span> <span class="m">24px</span> <span class="m">0</span> <span class="m">11px</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">126px</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">21px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.cfe-select</span> <span class="p">{</span>
+    <span class="k">background</span><span class="o">:</span> <span class="sx">url(select.png)</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">select</span><span class="nc">.cfe-styled</span> <span class="p">{</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">161px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.cfe-file</span> <span class="p">{</span>
+    <span class="k">background</span><span class="o">:</span> <span class="sx">url(file.png)</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/* Disabled style */</span>
+<span class="nc">.cfe-disabled</span><span class="o">,</span>
+<span class="nc">.cfe-readonly</span> <span class="p">{</span>
+    <span class="c">/* IE 8 */</span>
+    <span class="o">-</span><span class="n">ms</span><span class="o">-</span><span class="n">filter</span><span class="o">:</span> <span class="s2">"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"</span><span class="p">;</span>
+
+    <span class="c">/* IE 5-7 */</span>
+    <span class="n">filter</span><span class="o">:</span> <span class="n">alpha</span><span class="p">(</span><span class="k">opacity</span><span class="o">=</span><span class="m">50</span><span class="p">);</span>
+
+    <span class="c">/* CSS3 */</span>
+    <span class="k">opacity</span><span class="o">:</span> <span class="m">0</span><span class="o">.</span><span class="m">5</span><span class="p">;</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+
+<h3>Javascript</h3>
+
+<div class="highlight">
+<pre><span class="nx">jQuery</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="c1">// Default settings apply.</span>
+    <span class="c1">// All input/select tags with a class of 'cfe-styled' are affected.</span>
+    <span class="kd">var</span> <span class="nx">cf</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CustomFormElements</span><span class="p">();</span>
+
+    <span class="c1">// All options</span>
+    <span class="kd">var</span> <span class="nx">cf</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CustomFormElements</span><span class="p">({</span>
+        <span class="nx">cssClass</span><span class="o">:</span> <span class="s1">'styled'</span>
+    <span class="p">});</span>
+
+    <span class="c1">// If you need to reinitialize dynamically added form elements:</span>
+    <span class="nx">cf</span><span class="p">.</span><span class="nx">repaint</span><span class="p">();</span>
+
+<span class="p">});</span>
+</pre>
+</div>
+
+
+<h2>Demo</h2>
+
+<p><a href="http://karbassi.github.com/Custom-Form-Elements/demo.html">http://karbassi.github.com/Custom-Form-Elements/demo.html</a></p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/karbassi">karbassi</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+    
+  </body>
+</html>
